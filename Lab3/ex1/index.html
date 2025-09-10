@@ -15,29 +15,38 @@
                 <input type="text" name="title" />
             </p>
             <p>
-                <label>Course:</label>
-                <select name="where">
+            <legend>Email:</legend>
+            <input type="email">
+            </p>
+            <p>
+            <legend>Phone:</legend>
+            <input type="phonenumber">
+            </p>
+
+        
+        </fieldset>
+      </form>
+
+      <form method="post">
+        <fieldset>
+      <legend>Course Info Group:</legend>
+          <p>Choose a course</p>
+            <select name="where">
                     <option>Choose a course</option>
                     <option>Data Sciene</option>
                     <option>Graphic Design</option>
                     <option>Web development</option>
-                </select>
-            </p>
-            <p>Course Info Group:</p>
-            <legend>Email</legend>
-            <input type="email">
-            <legend>Phone</legend>
-            <input type="phonenumber">
-            <legend>Desired start date</legend>
+                </select>  
+            <p>Desired start date</p>
             <input type="datetime-local">
             
+            
+                <legend>I require financial aid information</legend>
             <input type="checkbox" 
             id="I require financial aid information"
              >
         </fieldset>
       </form>
-
-
 
 </body>
 </html>
