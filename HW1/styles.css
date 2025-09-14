@@ -1,0 +1,72 @@
+body {
+  background-color: rgb(255, 255, 255);
+  background-image: url('background.jpg')
+}
+
+h1 {
+  color: rgb(0, 0, 0);
+  margin-right: 20px;
+  margin-right: 50px;
+  text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+h2 {
+  color: rgb(0, 0, 0);
+  margin-right: 50px;
+  margin-right: 50px;
+  text-align: center;
+    font-family: "Times New Roman", "Courier New", monospace;
+}
+aside{text-align: center;
+
+}
+p {
+  color: rgb(149, 65, 65);
+  margin-right: 50px;
+  margin-right: 50px;
+  text-align: left;
+    font-family: "Times New Roman", "Courier New", monospace;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
+
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  background-image: url(d)
+}
+
+
+
+
+img {
+  float: right;
+  border: #000000;
+  height: auto;
+}
+
+div.footer {
+  position: none;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #050303;
+  
+  padding: 8px;
+  text-align: center;
+  z-index: 1000;
+}
