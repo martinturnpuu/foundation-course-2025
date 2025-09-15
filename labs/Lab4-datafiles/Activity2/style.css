@@ -5,7 +5,7 @@ font-family: 'Segoe UI', Tahoma,
 background-color: aqua;
 }
 .highlight{
-    background-color: rgb(211, 146, 59);
+    background-color: rgba(235, 6, 6, 0.6);
 }
 
 #special{border: 1px solid;

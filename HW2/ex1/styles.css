@@ -1,0 +1,64 @@
+h1{
+    font-family: Roboto Slab;
+    font-size: 2rem;
+    color: #9f2042;
+    text-align: center;
+}
+blockquote{
+    font-family: Roboto Slab;
+    font-size: 1.25rem;
+    color: #000000;
+    text-align: right;
+    padding: 5pt;
+}
+
+
+body{
+    margin-top: 0em;
+    margin-left: 4em;
+    margin-right: 4em;
+    margin-bottom: 0em;
+    background-color: #f9f9f9;
+}
+
+p{
+    font-family: Open Sans;
+    font-size: 1.rem;
+    padding: 5pt;
+    text-align: left;
+
+}
+
+a:link {
+  color: #ec8295;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: #ffffff;
+  
+}
+
+a{
+    color:aliceblue
+}
+
+#details{
+    color: #a9a9ba;
+    text-align: center;
+
+}
+
+#buttons{
+    color: #ec8295;
+
+}
+
+footer{
+    background-color: #29293a;
+}
+
+img{
+    text-align: center;
+}
