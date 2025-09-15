@@ -1,12 +1,12 @@
 body {
-  /* Set a base font-size */
+  font-size: large;
 }
 h1 {
-  /* Use px for font-size */
+  font-size: 22px;
 }
 h2 {
-  /* Use em for font-size */
+  font-size: 2em;
 }
 p {
-  /* Use rem for font-size */
+  font-size: 2rem;
 }

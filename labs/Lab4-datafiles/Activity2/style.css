@@ -1,0 +1,19 @@
+p{
+font-size: 20pt;
+font-family: 'Segoe UI', Tahoma,
+ Geneva, Verdana, sans-serif;
+background-color: aqua;
+}
+.highlight{
+    background-color: rgb(211, 146, 59);
+}
+
+#special{border: 1px solid;
+    padding: 10px 10px 10px 20px;
+   
+}
+
+a:hover{color:red
+
+
+}
