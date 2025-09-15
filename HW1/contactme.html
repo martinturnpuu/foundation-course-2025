@@ -7,31 +7,67 @@
 <header><h1>About Me</h1></header>
 <link rel="stylesheet" href="styles.css">
 <body>
-
+<nav>
 <ul>
   <li><a href="index.html">Home</a></li>
   <li><a href="aboutme.html">About me </a></li>
   <li><a href="projects.html">Projects</a></li>
   <li><a href="contactme.html">Contact me</a></li>
 </ul>
+</nav>
+<aside>
+<legend>My socials</legend>
+</aside>
+<fieldset>
+<aside> 
+<a href
+="https://www.linkedin.com/in/martin-turnpuu-458a5b2a5
+/?originalSubdomain=ee">My Linkdein</a>
+</aside>
+<aside>
+<a href
+="https://www.instagram.com/dirtychewitz">My instagramm</a>
+</aside>
+<aside>
+<a href
+="https://linktr.ee/dirti.chewitz">My Linktree</a>
+</aside>
+</fieldset>
       <form method="post">
         <fieldset>
             
-            <legend>Contact me</legend>
+            <aside><legend>Contact infromation</legend></aside>
             <p>
                 <label>Full Name:</label>
-                <input type="text" name="title" />
+                <input type="text" id= text name="title" required />
             </p>
             <p>
-            <legend>Email:</legend>
-            <input type="email">
+               <label>Email:</label>
+            <input type="email"id=email name="email"required>
             </p>
             <p>
-            <legend>Phone:</legend>
-            <input type="phonenumber">
+            <label>Phone:</label>
+            <input type="phonenumber" id="phonenumber" 
+            name="phonenumber" required>
+            <legend>Choose a subject for your message</legend>
+            <select name="Choose a subject for your message"> 
+                    <option>Collaboration</option>
+                    <option>Purchase</option>
+                    <option>Other subject</option>
+                </select>
+                <legend>Preferred method of contact.</legend>
+            <select name="Choose a subject for your message"> 
+                    <option>E-mail</option>
+                    <option>Call</option>
+                    <option>Sms</option>
+                </select>  
+            <legend>For injuies:</legend>
+            <input type = textarea>
+            <input type =submit>
+            <input type = reset>
             </p>
           <div class="footer">
-  <p>@Tlu</p>
+  <p>Thank you for visiting</p>
 </div>
 </body>
 </html>

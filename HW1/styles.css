@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(118, 148, 196);
   background-image: url('background.jpg')
 }
 
@@ -12,19 +12,37 @@ h1 {
 }
 h2 {
   color: rgb(0, 0, 0);
-  margin-right: 50px;
-  margin-right: 50px;
+  
+  
+  text-align: center;
+    font-family: " Courier New", monospace;
+}
+
+h3{
+  color: rgba(0, 0, 0, 0.895);
   text-align: center;
     font-family: "Times New Roman", "Courier New", monospace;
 }
 aside{text-align: center;
 
 }
+
+article {text-align: left; word-spacing: 5px;
+
+}
+
+section{text-align: center;word-spacing: 5px;
+  
+
+}
+
 p {
   color: rgb(149, 65, 65);
-  margin-right: 50px;
+  margin-right: 60px;
   margin-right: 50px;
   text-align: left;
+  word-spacing: 5px;
+  
     font-family: "Times New Roman", "Courier New", monospace;
 }
 
@@ -51,8 +69,13 @@ ul li a {
 }
 
 
-
-
+a {
+  color: rgb(0, 0, 0);
+  background-image: url(d)
+}
+a:active {
+  color: #d12f2f;          /* red flash when clicked */
+}
 img {
   float: right;
   border: #000000;
