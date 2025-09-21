@@ -76,6 +76,7 @@ a {
 a:active {
   color: #d12f2f;          /* red flash when clicked */
 }
+
 img {
   float: right;
   border: #000000;
