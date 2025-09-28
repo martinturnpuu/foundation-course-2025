@@ -1,0 +1,265 @@
+
+
+
+nav{
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background: rgb(12, 78, 96);
+  font-size: 25px;
+  z-index: 1000;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none; 
+  margin: 0;
+  padding: 0 40px;
+}
+
+ul li a {
+  color: rgb(211, 209, 212);
+  text-decoration: none;
+  padding: 20px 16px;
+  display: inline-block;
+
+}
+
+ul li a.btn-demo {
+  color: rgb(211, 209, 212);
+  background-color: rgb(191, 69, 38);
+  border-radius: 50px 50px ;
+}
+
+ul li a.btn-walsh img {
+ width: 100px;
+ height: auto;
+ display: block;
+}
+
+main {
+   background-color: rgb(12, 78, 96);
+   padding: 60px;
+   
+   background-image: url(images/font.png);
+  background-size: 40%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+h1{
+  color: rgb(211, 209, 212);
+  font-size: 75px;
+  justify-content: flex-start;
+   margin-top: 120px;
+   margin-left: 150px;
+   max-width: calc(100% - 480px);
+
+}
+
+.green {
+  color: rgb(0, 193, 148);
+  animation: pulseGreen 2s infinite alternate ease-in-out;
+}
+
+@keyframes pulseGreen {
+  0% {
+    color: rgb(0, 193, 148); 
+  }
+  50% {  color: rgb(0, 255, 200); }
+  100% {
+    color: rgb(0, 193, 148);
+  }
+}
+
+h2{
+  color: rgb(211, 209, 212);
+  background-color: rgb(38, 181, 191);
+  padding: 20px 30px;
+  border-radius: 32px;
+  margin-top: 120px;
+  font-size: 55px;
+  text-align: center;
+   margin-left: 150px;
+   max-width:280px;
+}
+
+
+
+p{
+    color: rgb(211, 209, 212);
+    font-size: 30px;
+    font-family: 'Lucida Sans', 
+    'Lucida Sans Regular', 
+    'Lucida Grande', 'Lucida Sans Unicode',
+     Geneva, Verdana, sans-serif
+    ;
+     margin-left: 150px;
+    max-width: calc(100% - 480px);
+    opacity: 0;
+    transform: translateY(40px);
+    animation: riseIn  1.55s ease-out forwards;
+}
+
+@keyframes riseIn {
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.figure0{
+ float: right;
+ max-width: 600px;
+ margin-top: 150px;
+ margin-left: 40px;
+ clear: right;
+ opacity: o;
+ transform: translateX(100px);
+ animation:slideIn 1.5s ease-out forwards;
+}
+
+h3{
+  color: rgb(211, 209, 212);
+  word-spacing: 0.5px;
+  margin-top: 150px;
+  font-size: 35px;
+  
+}
+
+h3 span {
+  display: inline-block;
+  border:  0.5px solid rgb(32, 142, 164); 
+  border-radius: 6px; 
+  padding: 10px 53px;
+}
+
+body {
+   font-family: 'Open Sans', sans-serif;
+   background-color: rgb(253, 255, 255);
+   background-image: image() ;
+   color: rgb(0, 0, 0);
+}
+
+.figure1{
+ float: right;
+ max-width: 700px;
+ max-height: 700px;
+ margin-top: 150px;
+ margin-left: 20px;
+ clear: right;
+ opacity: o;
+ transform: translateX(100px);
+ animation:slideIn 1.5s ease-out forwards;
+}
+
+@keyframes slideIn {to{
+opacity: 1;
+transform: translateX(0);
+}
+}
+
+.get {
+   color: rgb(211, 209, 212);
+  background-color: rgb(191, 69, 38);
+  border-radius: 50px 50px ;
+  font-size: 20px;
+  padding: 20px 20px ;
+
+  float: left;
+  margin-left: 100px;
+  margin-top: 50px;
+}
+
+.learn {
+   color: rgb(0, 0, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px 50px ;
+  font-size: 20px;
+  padding: 20px 20px ;
+  float: left;
+  margin-left: 200px;
+  margin-top: 50px;
+}
+
+h4{
+  color: black;
+  font-size: 55px;
+   text-align: center;
+}
+
+.our{
+  margin-top: 50px;
+  margin-right: 0px;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 150px;
+}
+
+.team{
+  color: black;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+
+.features {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 200px;
+    margin-right: 0;
+}
+
+
+.figure2{
+ float: right;
+ 
+ width: 50%;
+ max-height: 700px;
+ margin-top: 150px;
+ margin-left: 20px;
+ clear: right;
+ opacity: o;
+ transform: translateX(100px);
+ animation:slideIn 1.5s ease-out forwards;
+}
+
+.scale {
+    color: black;
+    font-size: 35px;
+    margin-right: 20px;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    padding: 20px 40px;
+    border-radius: 12px;
+    text-align: center;
+     background-image: url(images/cloud.png);
+     background-repeat: no-repeat;
+     background-size: 50px;
+    background-position: top right;
+}
+
+footer {
+background-color: rgb(12, 78, 96);
+text-align: center;
+background-size: 50px;
+
+    color: rgb(211, 209, 212);
+    padding: 20px;
+    margin-top: 500px;
+    text-align: center}
+    
+footer ul {
+display: flex; 
+    justify-content: center;
+    align-items: center;
+    list-style: none;}
+
+ul li a.btn-walsh2 img {
+ width: 100px;
+
+ display: block;
+}
