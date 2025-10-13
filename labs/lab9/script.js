@@ -50,7 +50,7 @@ function print(value, index){
 }
 */
 
-/*countries.forEach(printNum);
+countries.forEach(printNum);
 
 function printNum(value, index){
   console.log(" This is",value,"of index",index);
@@ -74,3 +74,5 @@ else
 
 const squares =numbers.map(num => num * num);
 console.log(squares);
+
+getComputedStyle
