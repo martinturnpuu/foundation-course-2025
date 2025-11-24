@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Contact Us - Vinyl Haven</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<ul class="nav">
+  <li><a href="allvinyls.html">Shop Vinyl</a></li>
+  <li><a href="web.html">Home</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="account.html">Account</a></li>
+</ul>
+
+<section class="content">
+
+  <!-- Contact Header -->
+  <article style="text-align: center; margin-bottom: 40px;">
+    <h1 style="font-size: 3em; color: #2c3e50; margin-bottom: 20px;">Contact Us!</h1>
+    <p style="font-size: 1.2em; color: #666; max-width: 600px; margin: 0 auto 40px;">
+      Have questions about our vinyl collection or need assistance? We'd love to hear from you! 
+      Send us a message and we'll get back to you within 24 hours.
+    </p>
+  </article>
+
+  <!-- Contact Form and Info -->
+  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Contact Form -->
+    <div class="form-container" style="flex: 1; min-width: 400px;">
+      <form style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); margin: 0;">
+        <h3 style="font-size: 1.8em; color: #2c3e50; margin-bottom: 25px; text-align: center;">Send us a Message</h3>
+        
+        <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+          <div style="flex: 1;">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="fname" placeholder="John">
+          </div>
+          <div style="flex: 1;">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="lname" placeholder="Doe">
+          </div>
+        </div>
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890">
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" placeholder="example@mail.com">
+
+        <label for="subject">Subject</label>
+        <select id="subject" name="subject" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;">
+          <option value="">Select a subject...</option>
+          <option value="order">Order Inquiry</option>
+          <option value="shipping">Shipping Question</option>
+          <option value="product">Product Information</option>
+          <option value="partnership">Partnership Opportunity</option>
+          <option value="careers">Careers</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" rows="6" placeholder="Tell us how we can help you..." style="width: 100%; padding: 12px; border: 2px solid #ecf0f1; border-radius: 8px; font-family: inherit; font-size: 14px; resize: vertical;"></textarea>
+
+        <button type="submit" style="width: 100%; padding: 15px; background: linear-gradient(135deg, #3498db 0%, #2980b9 100%); color: white; font-size: 16px; font-weight: 600; border: none; border-radius: 8px; cursor: pointer; transition: all 0.3s ease; margin-top: 20px;">
+          Send Message
+        </button>
+      </form>
+    </div>
+
+    <!-- Contact Information -->
+    <div style="flex: 1; min-width: 300px; max-width: 400px;">
+      <div style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content;">
+        <h3 style="font-size: 1.8em; color: #2c3e50; margin-bottom: 30px; text-align: center;">Get in Touch</h3>
+        
+        <div style="margin-bottom: 25px;">
+          <h4 style="color: #e74c3c; margin-bottom: 10px; font-size: 1.2em;">📍 Store Address</h4>
+          <p style="color: #666; line-height: 1.6;">
+            123 Vinyl Street<br>
+            Music City, MC 10001<br>
+            United States
+          </p>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <h4 style="color: #e74c3c; margin-bottom: 10px; font-size: 1.2em;">📞 Phone</h4>
+          <p style="color: #666; line-height: 1.6;">
+            +1 (555) 123-4567<br>
+            Mon-Fri: 9AM-6PM EST
+          </p>
+        </div>
+
+        <div style="margin-bottom: 25px;">
+          <h4 style="color: #e74c3c; margin-bottom: 10px; font-size: 1.2em;">✉️ Email</h4>
+          <p style="color: #666; line-height: 1.6;">
+            hello@vinylhaven.com<br>
+            support@vinylhaven.com
+          </p>
+        </div>
+
+        <div>
+          <h4 style="color: #e74c3c; margin-bottom: 15px; font-size: 1.2em;">🕒 Store Hours</h4>
+          <p style="color: #666; line-height: 1.6;">
+            Monday - Friday: 10AM - 8PM<br>
+            Saturday: 9AM - 9PM<br>
+            Sunday: 11AM - 6PM
+          </p>
+        </div>
+
+        <div style="margin-top: 30px; padding: 20px; background: #f8f9fa; border-radius: 8px;">
+          <h4 style="color: #2c3e50; margin-bottom: 10px; font-size: 1.1em;">Need Immediate Help?</h4>
+          <p style="color: #666; font-size: 0.9em; line-height: 1.5;">
+            Call us directly at <strong>+1 (555) 123-4567</strong> for urgent inquiries about your order or store information.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>

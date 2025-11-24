@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Checkout - Vinyl Haven</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<ul class="nav">
+  <li><a href="allvinyls.html">Shop Vinyl</a></li>
+  <li><a href="web.html">Home</a></li>
+  <li><a href="contact.html">Contact</a></li>
+  <li><a href="account.html">Account</a></li>
+</ul>
+
+<section class="content">
+
+  <!-- Checkout Header -->
+  <article style="text-align: center; margin-bottom: 40px;">
+    <h1 style="font-size: 2.8em; color: #2c3e50; margin-bottom: 10px;">Checkout</h1>
+    <p style="font-size: 1.1em; color: #666; max-width: 600px; margin: 0 auto;">
+      Complete your purchase and get ready to enjoy your new vinyl records!
+    </p>
+  </article>
+
+  <div style="display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; max-width: 1200px; margin: 0 auto;">
+    
+    <!-- Checkout Form -->
+    <div style="flex: 2; min-width: 500px;">
+      <form style="background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        
+        <!-- Personal Information Section -->
+        <div style="margin-bottom: 40px;">
+          <h2 style="font-size: 1.8em; color: #2c3e50; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 3px solid #e74c3c;">Personal Information</h2>
+          
+          <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <div style="flex: 1;">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="John">
+            </div>
+            <div style="flex: 1;">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Doe">
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <div style="flex: 1;">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="john.doe@example.com">
+            </div>
+            <div style="flex: 1;">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890">
+            </div>
+          </div>
+
+          <label for="address">Address</label>
+          <input type="text" id="address" name="address" placeholder="123 Main Street">
+
+          <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <div style="flex: 2;">
+              <label for="city">City</label>
+              <input type="text" id="city" name="city" placeholder="New York">
+            </div>
+            <div style="flex: 1;">
+              <label for="postal">Postal Code</label>
+              <input type="text" id="postal" name="postal" placeholder="10001">
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Information Section -->
+        <div style="margin-bottom: 40px;">
+          <h2 style="font-size: 1.8em; color: #2c3e50; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 3px solid #3498db;">Card Information</h2>
+          
+          <label for="cardnumber">Card Number</label>
+          <input type="text" id="cardnumber" name="cardnumber" placeholder="1234 5678 9012 3456">
+
+          <div style="display: flex; gap: 15px; margin-bottom: 20px;">
+            <div style="flex: 1;">
+              <label for="expdate">Expiration Date</label>
+              <input type="text" id="expdate" name="expdate" placeholder="MM/YY">
+            </div>
+            <div style="flex: 1;">
+              <label for="security">Security Code</label>
+              <input type="text" id="security" name="security" placeholder="123">
+            </div>
+          </div>
+
+          <label for="cardname">Name on Card</label>
+          <input type="text" id="cardname" name="cardname" placeholder="JOHN DOE">
+        </div>
+
+        <!-- Delivery Method Section -->
+        <div style="margin-bottom: 40px;">
+          <h2 style="font-size: 1.8em; color: #2c3e50; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 3px solid #27ae60;">Delivery Method</h2>
+          
+          <label for="delivery">Delivery Method</label>
+          <select id="delivery" name="delivery" style="width: 100%; padding: 12px; margin-bottom: 20px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 14px;">
+            <option value="ship">Standard Shipping (5-7 business days) - $4.99</option>
+            <option value="express">Express Shipping (2-3 business days) - $9.99</option>
+            <option value="pickup">Store Pickup (Free)</option>
+          </select>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" style="width: 100%; padding: 18px; background: linear-gradient(135deg, #27ae60 0%, #229954 100%); color: white; font-size: 18px; font-weight: 600; border: none; border-radius: 10px; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;">
+          Complete Purchase
+        </button>
+      </form>
+    </div>
+
+    <!-- Order Summary -->
+    <div style="flex: 1; min-width: 300px; max-width: 400px;">
+      <div style="background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); height: fit-content;">
+        <h3 style="font-size: 1.6em; color: #2c3e50; margin-bottom: 25px; text-align: center;">Order Summary</h3>
+        
+        <div style="margin-bottom: 20px;">
+          <div style="display: flex; justify-content: between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #ecf0f1;">
+            <span>21 Pilots - Vessel</span>
+            <span style="font-weight: bold;">$24.99</span>
+          </div>
+          <div style="display: flex; justify-content: between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #ecf0f1;">
+            <span>Lady Gaga - The Fame</span>
+            <span style="font-weight: bold;">$27.99</span>
+          </div>
+          <div style="display: flex; justify-content: between; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid #ecf0f1;">
+            <span>Michael Jackson - Thriller</span>
+            <span style="font-weight: bold;">$32.99</span>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <div style="display: flex; justify-content: between; margin-bottom: 10px;">
+            <span>Subtotal:</span>
+            <span>$85.97</span>
+          </div>
+          <div style="display: flex; justify-content: between; margin-bottom: 10px;">
+            <span>Shipping:</span>
+            <span>$4.99</span>
+          </div>
+          <div style="display: flex; justify-content: between; margin-bottom: 10px;">
+            <span>Tax:</span>
+            <span>$8.60</span>
+          </div>
+        </div>
+
+        <div style="display: flex; justify-content: between; font-size: 1.3em; font-weight: bold; color: #2c3e50; padding-top: 15px; border-top: 2px solid #e74c3c;">
+          <span>Total:</span>
+          <span>$99.56</span>
+        </div>
+
+        <div style="margin-top: 25px; padding: 15px; background: #f8f9fa; border-radius: 8px; text-align: center;">
+          <p style="color: #666; font-size: 0.9em; margin: 0;">
+            🔒 Your payment information is secure and encrypted
+          </p>
+        </div>
+
+        <div style="margin-top: 20px; display: flex; justify-content: center; gap: 15px;">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzAwMDBGRiIvPgo8L3N2Zz4K" alt="Visa" style="height: 24px;">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iI0ZGN0MwMCIvPgo8L3N2Zz4K" alt="Mastercard" style="height: 24px;">
+          <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCA0MCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjI0IiByeD0iNCIgZmlsbD0iIzAwQUFFNCIvPgo8L3N2Zz4K" alt="American Express" style="height: 24px;">
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+</body>
+</html>
