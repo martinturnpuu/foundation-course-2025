@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
 window.showAuthForm = function(formType) {
     const tabs = document.querySelectorAll('.auth-tab');
     tabs.forEach(tab => tab.classList.remove('active'));
-    
+
     if (formType === 'login') {
         tabs[0].classList.add('active');
         document.getElementById('loginForm').style.display = 'block';
