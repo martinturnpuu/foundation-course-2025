@@ -7,8 +7,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
     <ul class="nav">
-        <li><a href="allvinyls.html">Shop Vinyl</a></li>
+        <li><a href="allvinyls.html" class="active">Shop Vinyl</a></li>
         <li><a href="index.html">Home</a></li>
         <li><a href="contact.html">Contact</a></li>
         <li><a href="account.html">Account</a></li>
@@ -16,124 +17,37 @@
 
     <div class="content">
         <h1>Premium Vinyl Collection</h1>
-        
+
         <form class="search-form" id="filterForm">
             <p>Find Your Perfect Record</p>
-            
+
             <input type="text" id="searchArtist" class="search-input"
-                   placeholder="Search artist..." 
-                   oninput="filterVinyls()">
-            
+                   placeholder="Search artist...">
+
             <input type="text" id="searchGenre" class="search-input"
-                   placeholder="Search genre..." 
-                   oninput="filterVinyls()">
-            
+                   placeholder="Search genre...">
+
             <input type="number" id="searchYear" class="search-input"
-                   placeholder="Release year..." 
-                   oninput="filterVinyls()">
-            
-            <button type="button" class="search-button" onclick="filterVinyls()">Search Records</button>
+                   placeholder="Release year...">
+
+            <button type="button" class="search-button">
+                Search Records
+            </button>
         </form>
 
         <article>
-            <div class="gallery" id="vinylGallery">
-                <div class="gallery-item"
-                     data-artist="twenty one pilots"
-                     data-genre="alternative rock"
-                     data-year="2013">
-                    <div class="vinyl-effect">
-                        <img src="images/21.webp" alt="21 Pilots Vinyl">
-                    </div>
-                    <div class="desc">Twenty One Pilots - Vessel</div>
-                    <a href="description.html" class="buy-button">Buy Now - $24.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="lady gaga"
-                     data-genre="pop"
-                     data-year="2008">
-                    <div class="vinyl-effect">
-                        <img src="images/Lady.webp" alt="Lady Gaga Vinyl">
-                    </div>
-                    <div class="desc">Lady Gaga - The Fame</div>
-                    <a href="description.html" class="buy-button">Buy Now - $27.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="madonna"
-                     data-genre="pop"
-                     data-year="1990">
-                    <div class="vinyl-effect">
-                        <img src="images/Madonna.webp" alt="Madonna Vinyl">
-                    </div>
-                    <div class="desc">Madonna - Like a Virgin</div>
-                    <a href="description.html" class="buy-button">Buy Now - $25.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="taylor swift"
-                     data-genre="pop"
-                     data-year="2014">
-                    <div class="vinyl-effect">
-                        <img src="images/taylor.webp" alt="Taylor Swift Vinyl">
-                    </div>
-                    <div class="desc">Taylor Swift - 1989</div>
-                    <a href="description.html" class="buy-button">Buy Now - $29.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="the beatles"
-                     data-genre="rock"
-                     data-year="1969">
-                    <div class="vinyl-effect">
-                        <img src="images/beatles.webp" alt="The Beatles Vinyl">
-                    </div>
-                    <div class="desc">The Beatles - Abbey Road</div>
-                    <a href="description.html" class="buy-button">Buy Now - $34.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="pink floyd"
-                     data-genre="progressive rock"
-                     data-year="1973">
-                    <div class="vinyl-effect">
-                        <img src="images/pinkfloyd.webp" alt="Pink Floyd Vinyl">
-                    </div>
-                    <div class="desc">Pink Floyd - The Dark Side of the Moon</div>
-                    <a href="description.html" class="buy-button">Buy Now - $32.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="kendrick lamar"
-                     data-genre="hip hop"
-                     data-year="2015">
-                    <div class="vinyl-effect">
-                        <img src="images/kendrick.webp" alt="Kendrick Lamar Vinyl">
-                    </div>
-                    <div class="desc">Kendrick Lamar - To Pimp a Butterfly</div>
-                    <a href="description.html" class="buy-button">Buy Now - $28.99</a>
-                </div>
-
-                <div class="gallery-item"
-                     data-artist="arctic monkeys"
-                     data-genre="indie rock"
-                     data-year="2013">
-                    <div class="vinyl-effect">
-                        <img src="images/arctic.webp" alt="Arctic Monkeys Vinyl">
-                    </div>
-                    <div class="desc">Arctic Monkeys - AM</div>
-                    <a href="description.html" class="buy-button">Buy Now - $26.99</a>
-                </div>
-                
-            </div>
+            <div class="gallery" id="vinylGallery"></div>
         </article>
     </div>
-
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
-    <script src="filter.js"></script>
+
+
+    <script src="vinyls.js"></script>
+
     <script src="firebase.js"></script>
+
 </body>
 </html>
