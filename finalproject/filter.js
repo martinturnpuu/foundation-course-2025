@@ -1,7 +1,6 @@
 const API_URL =
   "https://itunes.apple.com/search?term=vinyl&media=music&entity=album&limit=130";
 
-// Store releases globally to access them later
 let releasesData = [];
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -53,7 +52,7 @@ function renderVinyls(releases) {
     item.dataset.artist = artist.toLowerCase();
     item.dataset.genre = genre.toLowerCase();
     item.dataset.year = year;
-    item.dataset.index = index; // Store index in dataset too
+    item.dataset.index = index; 
 
     item.innerHTML = `
       <div class="vinyl-effect">
@@ -72,7 +71,6 @@ function renderVinyls(releases) {
     gallery.appendChild(item);
   });
 
-  // Add click event listeners to all buy buttons
   setTimeout(() => {
     const buyButtons = document.querySelectorAll('.buy-button[data-index]');
     buyButtons.forEach(button => {
@@ -82,7 +80,6 @@ function renderVinyls(releases) {
         const release = releases[index];
         
         if (release) {
-          // Create detailed vinyl data object
           const vinylData = {
             artist: release.artistName,
             title: release.collectionName,
@@ -97,11 +94,8 @@ function renderVinyls(releases) {
             artistId: release.artistId,
             description: generateAlbumDescription(release)
           };
-          
-          // Store the selected vinyl data
+     
           localStorage.setItem('selectedVinyl', JSON.stringify(vinylData));
-          
-          // Navigate to description page
           window.location.href = 'description.html';
         }
       });
@@ -143,16 +137,13 @@ function filterVinyls() {
   });
 }
 
-// Optional: Add search suggestions or autocomplete
 document.getElementById('searchArtist')?.addEventListener('input', function() {
   const value = this.value.toLowerCase();
   if (value.length > 0) {
-    // You could implement search suggestions here
     console.log('Searching for artist:', value);
   }
 });
 
-// Optional: Add clear search functionality
 function clearFilters() {
   document.getElementById('searchArtist').value = '';
   document.getElementById('searchGenre').value = '';
