@@ -1,3 +1,4 @@
+
 const firebaseConfig = {
   apiKey: "AIzaSyBQShXrKtOzFDsNj3jkMly54iu-fmc1n8U",
   authDomain: "vinylshop-49e04.firebaseapp.com",
@@ -8,8 +9,11 @@ const firebaseConfig = {
   measurementId: "G-YVX9ZKC974"
 };
 
-
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+} else {
+  firebase.app();
+}
 
 const auth = firebase.auth();
 const db = firebase.firestore();
@@ -20,9 +24,9 @@ window.db = db;
 console.log("Firebase initialized successfully");
 
 auth.onAuthStateChanged((user) => {
-    if (user) {
-        console.log("User signed in:", user.email);
-    } else {
-        console.log("User signed out");
-    }
+  if (user) {
+    console.log("User signed in:", user.email);
+  } else {
+    console.log("User signed out");
+  }
 });

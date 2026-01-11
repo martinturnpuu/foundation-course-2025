@@ -25,6 +25,7 @@
 
     <div class="order-summary">
       <h2>Your Order</h2>
+
       <div class="order-item" id="vinylOrderItem">
         <div class="vinyl-info">
           <img id="vinylImage" src="" alt="Album Cover" class="vinyl-thumbnail">
@@ -39,7 +40,7 @@
           <span id="vinylPrice">$0.00</span>
         </div>
       </div>
-      
+
       <div class="order-totals">
         <div class="total-row">
           <span>Subtotal:</span>
@@ -54,88 +55,98 @@
           <span id="totalCost">$0.00</span>
         </div>
       </div>
-      
     </div>
 
     <div class="checkout-form">
       <form id="checkoutForm">
-        <input type="hidden" id="vinylData" name="vinylData" value="">
-        
+
+        <input type="hidden" id="vinylData" name="vinylData">
+
         <div class="form-section">
           <div class="form-row">
             <div class="flex-1">
               <label for="fname">First Name</label>
-              <input type="text" id="fname" name="fname" placeholder="John" required>
+              <input type="text" id="fname" required>
             </div>
             <div class="flex-1">
               <label for="lname">Last Name</label>
-              <input type="text" id="lname" name="lname" placeholder="Doe" required>
+              <input type="text" id="lname" required>
             </div>
           </div>
+
           <div class="form-row">
             <div class="flex-1">
               <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+              <input type="email" id="email" required>
             </div>
             <div class="flex-1">
               <label for="phone">Phone</label>
-              <input type="tel" id="phone" name="phone" placeholder="+1 234 567 890">
+              <input type="tel" id="phone">
             </div>
           </div>
 
           <label for="address">Address</label>
-          <input type="text" id="address" name="address" placeholder="123 Main Street" required>
+          <input type="text" id="address" required>
 
           <div class="form-row">
             <div class="flex-2">
               <label for="city">City</label>
-              <input type="text" id="city" name="city" placeholder="New York" required>
+              <input type="text" id="city" required>
             </div>
             <div class="flex-1">
               <label for="postal">Postal Code</label>
-              <input type="text" id="postal" name="postal" placeholder="10001" required>
+              <input type="text" id="postal" required>
             </div>
           </div>
         </div>
 
         <div class="form-section">
           <label for="cardnumber">Card Number</label>
-          <input type="text" id="cardnumber" name="cardnumber" placeholder="1234 5678 9012 3456" required pattern="[0-9\s]{13,19}">
+          <input type="text" id="cardnumber" required>
 
           <div class="form-row">
             <div class="flex-1">
               <label for="expdate">Expiration Date</label>
-              <input type="text" id="expdate" name="expdate" placeholder="MM/YY" required pattern="(0[1-9]|1[0-2])\/[0-9]{2}">
+              <input type="text" id="expdate" required>
             </div>
             <div class="flex-1">
               <label for="security">Security Code</label>
-              <input type="text" id="security" name="security" placeholder="123" required pattern="[0-9]{3,4}">
+              <input type="text" id="security" required>
             </div>
           </div>
 
           <label for="cardname">Name on Card</label>
-          <input type="text" id="cardname" name="cardname" placeholder="JOHN DOE" required>
+          <input type="text" id="cardname" required>
         </div>
 
         <div class="form-section">
           <label for="delivery">Delivery Method</label>
-          <select id="delivery" name="delivery" required>
+          <select id="delivery" required>
             <option value="">Select delivery method</option>
-            <option value="ship">Standard Shipping (5–7 business days) - $4.99</option>
-            <option value="express">Express Shipping (2–3 business days) - $9.99</option>
-            <option value="pickup">Store Pickup (Free)</option>
+            <option value="ship">Standard Shipping – $4.99</option>
+            <option value="express">Express Shipping – $9.99</option>
+            <option value="pickup">Store Pickup – Free</option>
           </select>
         </div>
 
         <button type="submit">Complete Purchase</button>
+
       </form>
     </div>
 
   </div>
 </section>
 
-<script src="checkout.js"></script>
+<!-- 1️⃣ Firebase SDK v8 -->
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+<!-- 2️⃣ Firebase config и auth/db -->
 <script src="firebase.js"></script>
+
+<!-- 3️⃣ Checkout logic -->
+<script src="checkout.js"></script>
 
 </body>
 </html>

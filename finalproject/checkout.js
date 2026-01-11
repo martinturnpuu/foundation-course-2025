@@ -4,168 +4,76 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadSelectedVinyl() {
-    console.log('Loading vinyl data...');
-    
-    let vinylData = null;
-    
-    const currentVinyl = localStorage.getItem('currentVinyl');
-    console.log('currentVinyl from localStorage:', currentVinyl);
-    
-    const selectedVinyl = localStorage.getItem('selectedVinyl');
-    console.log('selectedVinyl from localStorage:', selectedVinyl);
-    
-    if (currentVinyl) {
-        try {
-            vinylData = JSON.parse(currentVinyl);
-            console.log('Parsed currentVinyl:', vinylData);
-        } catch (e) {
-            console.error('Error parsing currentVinyl:', e);
-        }
-    } else if (selectedVinyl) {
-        try {
-            vinylData = JSON.parse(selectedVinyl);
-            console.log('Parsed selectedVinyl:', vinylData);
-        } catch (e) {
-            console.error('Error parsing selectedVinyl:', e);
-        }
-    }
-    
-    if (vinylData) {
-        displayOrderSummary(vinylData);
-        window.currentVinylData = vinylData;
-    } else {
-        console.error('No vinyl data found in localStorage');
-        showNoVinylMessage();
-    }
-}
+    const currentVinyl = localStorage.getItem('currentVinyl') || localStorage.getItem('selectedVinyl');
+    if (!currentVinyl) return showNoVinylMessage();
 
-function displayOrderSummary(vinylData) {
-    console.log('Displaying order summary for:', vinylData);
-    
+    const vinylData = JSON.parse(currentVinyl);
+    window.currentVinylData = vinylData;
+
     document.getElementById('vinylTitle').textContent = vinylData.title || 'Unknown Album';
-    document.getElementById('vinylArtist').textContent = `Artist: ${vinylData.artist || 'Unknown Artist'}`;
-    document.getElementById('vinylGenre').textContent = `Genre: ${vinylData.genre || 'Unknown Genre'}`;
-    document.getElementById('vinylYear').textContent = `Year: ${vinylData.year || 'Unknown Year'}`;
-    
-    const price = vinylData.price || 24.99;
-    document.getElementById('vinylPrice').textContent = `$${price.toFixed(2)}`;
-    
-    const vinylImage = document.getElementById('vinylImage');
+    document.getElementById('vinylArtist').textContent = `Artist: ${vinylData.artist || 'Unknown'}`;
+    document.getElementById('vinylGenre').textContent = `Genre: ${vinylData.genre || 'Unknown'}`;
+    document.getElementById('vinylYear').textContent = `Year: ${vinylData.year || 'Unknown'}`;
+    document.getElementById('vinylPrice').textContent = `$${vinylData.price.toFixed(2)}`;
+
     if (vinylData.image) {
-        vinylImage.src = vinylData.image;
-        vinylImage.alt = `${vinylData.artist} - ${vinylData.title}`;
-    } else {
-        vinylImage.src = 'images/default-vinyl.jpg';
-        vinylImage.alt = 'Default vinyl image';
+        document.getElementById('vinylImage').src = vinylData.image;
+        document.getElementById('vinylImage').alt = `${vinylData.artist} - ${vinylData.title}`;
     }
-    
+
     document.getElementById('vinylData').value = JSON.stringify(vinylData);
-    
-    calculateTotals(price);
+    calculateTotals(vinylData.price);
 }
 
-function calculateTotals(vinylPrice) {
-    const deliverySelect = document.getElementById('delivery');
-    let shippingCost = 0;
-    
-    const selectedOption = deliverySelect.options[deliverySelect.selectedIndex];
-    if (selectedOption) {
-        if (selectedOption.value === 'ship') {
-            shippingCost = 4.99;
-        } else if (selectedOption.value === 'express') {
-            shippingCost = 9.99;
-        } else if (selectedOption.value === 'pickup') {
-            shippingCost = 0;
-        }
+function calculateTotals(price) {
+    const delivery = document.getElementById('delivery');
+    let shipping = 0;
+    if (delivery) {
+        const val = delivery.value;
+        if (val === 'ship') shipping = 4.99;
+        if (val === 'express') shipping = 9.99;
     }
 
-    const subtotal = parseFloat(vinylPrice) || 0;
-    document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
-    document.getElementById('shippingCost').textContent = `$${shippingCost.toFixed(2)}`;
-    document.getElementById('totalCost').textContent = `$${(subtotal + shippingCost).toFixed(2)}`;
+    document.getElementById('subtotal').textContent = `$${price.toFixed(2)}`;
+    document.getElementById('shippingCost').textContent = `$${shipping.toFixed(2)}`;
+    document.getElementById('totalCost').textContent = `$${(price + shipping).toFixed(2)}`;
 }
 
 function setupFormListeners() {
-    const deliverySelect = document.getElementById('delivery');
-    if (deliverySelect) {
-        deliverySelect.addEventListener('change', function() {
-            const vinylPrice = window.currentVinylData?.price || 24.99;
-            calculateTotals(vinylPrice);
+    const delivery = document.getElementById('delivery');
+    if (delivery) {
+        delivery.addEventListener('change', () => {
+            const price = window.currentVinylData?.price || 0;
+            calculateTotals(price);
         });
     }
-  
+
     const form = document.getElementById('checkoutForm');
     if (form) {
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', async function(e) {
             e.preventDefault();
-            
-            if (validateForm()) {
-                processOrder();
-            }
+            if (validateForm()) await processOrder();
         });
     }
 }
 
 function validateForm() {
-    let isValid = true;
-    
-    const requiredFields = [
-        'fname', 'lname', 'email', 'address', 
-        'city', 'postal', 'cardnumber', 'expdate', 
-        'security', 'cardname'
-    ];
-    
-    requiredFields.forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        if (!field || !field.value.trim()) {
-            if (field) {
-                field.style.border = '2px solid red';
-                field.style.borderRadius = '4px';
-            }
-            isValid = false;
-        } else {
-            if (field) {
-                field.style.border = '';
-            }
-        }
-    });
-    
-    const delivery = document.getElementById('delivery');
-    if (!delivery || !delivery.value) {
-        if (delivery) {
-            delivery.style.border = '2px solid red';
-            delivery.style.borderRadius = '4px';
-        }
-        isValid = false;
-    } else {
-        if (delivery) {
-            delivery.style.border = '';
+    const requiredFields = ['fname','lname','email','address','city','postal','cardnumber','expdate','security','cardname','delivery'];
+    for (let id of requiredFields) {
+        const el = document.getElementById(id);
+        if (!el || !el.value.trim()) {
+            alert('Please fill in all required fields.');
+            el?.focus();
+            return false;
         }
     }
-    
-    const email = document.getElementById('email');
-    if (email && email.value) {
-        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailPattern.test(email.value)) {
-            email.style.border = '2px solid red';
-            email.style.borderRadius = '4px';
-            isValid = false;
-        }
-    }
-    
-    if (!isValid) {
-        alert('Please fill in all required fields correctly.');
-    }
-    
-    return isValid;
+    return true;
 }
 
-function processOrder() {
-    if (!window.currentVinylData) {
-        alert('No vinyl selected. Please go back and select an album.');
-        return;
-    }
-    
+async function processOrder() {
+    if (!window.currentVinylData) return alert('No vinyl selected.');
+
+    const user = auth.currentUser;
     const orderData = {
         vinyl: window.currentVinylData,
         customer: {
@@ -181,43 +89,66 @@ function processOrder() {
         paymentMethod: 'card',
         orderId: generateOrderId(),
         timestamp: new Date().toISOString(),
-        total: document.getElementById('totalCost').textContent
+        total: document.getElementById('totalCost').textContent,
+        userId: user ? user.uid : null,
+        userEmail: user ? user.email : null
     };
-    
-    console.log('Processing order:', orderData);
-    
-    localStorage.setItem('lastOrder', JSON.stringify(orderData));
-    
-    alert(`Thank you for your purchase!\n\nOrder ID: ${orderData.orderId}\n\nYou will receive a confirmation email shortly.`);
-    
-    localStorage.removeItem('currentVinyl');
-    localStorage.removeItem('selectedVinyl');
-   
-    window.location.href = 'allvinyls.html';
-}
 
-function showNoVinylMessage() {
-    const orderItem = document.getElementById('vinylOrderItem');
-    if (orderItem) {
-        orderItem.innerHTML = `
-            <div style="text-align: center; padding: 40px;">
-                <h3>No Vinyl Selected</h3>
-                <p>You haven't selected any vinyl to purchase.</p>
-                <a href="allvinyls.html" style="display: inline-block; 
-                   background-color: #333; color: white; 
-                   padding: 10px 20px; text-decoration: none; 
-                   border-radius: 5px; margin-top: 20px;">
-                    Browse Vinyls
-                </a>
-            </div>
-        `;
-                document.querySelector('.order-totals').style.display = 'none';
-        document.querySelector('.secure-checkout').style.display = 'none';
+    try {
+        await db.collection('orders').add({
+            ...orderData,
+            createdAt: new Date(),
+            status: 'completed'
+        });
+
+        if (user) {
+            const purchaseRecord = {
+                vinyl: orderData.vinyl,
+                orderId: orderData.orderId,
+                purchaseDate: new Date(), 
+                total: orderData.total,
+                deliveryMethod: orderData.delivery,
+                status: 'purchased'
+            };
+
+            const userRef = db.collection('users').doc(user.uid);
+            const userDoc = await userRef.get();
+
+            if (userDoc.exists) {
+                await userRef.update({
+                    purchasedVinyls: firebase.firestore.FieldValue.arrayUnion(purchaseRecord)
+                });
+            } else {
+                await userRef.set({
+                    name: user.displayName || orderData.customer.firstName + ' ' + orderData.customer.lastName,
+                    email: user.email || orderData.customer.email,
+                    createdAt: new Date(),
+                    purchasedVinyls: [purchaseRecord]
+                });
+            }
+        }
+
+        localStorage.removeItem('currentVinyl');
+        localStorage.removeItem('selectedVinyl');
+
+        alert(`Thank you! Order ID: ${orderData.orderId}`);
+        window.location.href = 'allvinyls.html';
+
+    } catch(err) {
+        console.error(err);
+        alert('Error processing order. Check console for details.');
     }
 }
 
 function generateOrderId() {
     const timestamp = Date.now().toString(36);
-    const random = Math.random().toString(36).substr(2, 5);
+    const random = Math.random().toString(36).substr(2,5);
     return `VINYL-${timestamp}-${random}`.toUpperCase();
+}
+
+function showNoVinylMessage() {
+    const orderItem = document.getElementById('vinylOrderItem');
+    if(orderItem) orderItem.innerHTML = `<div style="text-align:center;padding:40px"><h3>No Vinyl Selected</h3><a href="allvinyls.html">Browse Vinyls</a></div>`;
+    document.querySelector('.order-totals').style.display = 'none';
+    document.querySelector('.checkout-form').style.display = 'none';
 }

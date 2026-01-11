@@ -1,10 +1,7 @@
-// This file handles the dynamic loading of vinyl data on the description page
-
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Description page loaded');
     loadAlbumDetails();
     
-    // Setup debug button
     document.getElementById('debugButton')?.addEventListener('click', function() {
         testLocalStorage();
     });
@@ -13,7 +10,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function loadAlbumDetails() {
     console.log('Loading album details...');
     
-    // Get vinyl data from localStorage
     const vinylDataString = localStorage.getItem('selectedVinyl');
     console.log('Raw vinyl data from localStorage:', vinylDataString);
     
@@ -32,8 +28,7 @@ function loadAlbumDetails() {
         }
         
         displayAlbumDetails(vinylData);
-        
-        // Set up the Buy Now button to save data for checkout
+ 
         setupBuyButton(vinylData);
         
     } catch (error) {
@@ -45,7 +40,7 @@ function loadAlbumDetails() {
 function displayAlbumDetails(vinylData) {
     console.log('Displaying album details:', vinylData);
     
-    // Update the page with vinyl data
+ 
     document.getElementById('albumTitle').textContent = vinylData.title || 'Unknown Album';
     document.getElementById('albumArtist').textContent = vinylData.artist || 'Unknown Artist';
     document.getElementById('albumYear').textContent = vinylData.year || 'Unknown Year';
@@ -55,11 +50,11 @@ function displayAlbumDetails(vinylData) {
     const price = vinylData.price || 24.99;
     document.getElementById('albumPrice').textContent = `$${price.toFixed(2)}`;
     
-    // Format and display description
+  
     const description = vinylData.description || generateDefaultDescription(vinylData);
     document.getElementById('albumDescription').textContent = description;
     
-    // Set album image
+   
     const albumImage = document.getElementById('albumImage');
     if (vinylData.image) {
         albumImage.src = vinylData.image;
@@ -69,7 +64,7 @@ function displayAlbumDetails(vinylData) {
         albumImage.alt = 'Default vinyl image';
     }
     
-    // Update page title
+    
     document.title = `Vinyl Shop - ${vinylData.title}`;
     
     console.log('Album details displayed successfully');
@@ -88,18 +83,15 @@ function setupBuyButton(vinylData) {
         
         console.log('Buy button clicked');
         
-        // Save enhanced data for checkout
         saveVinylForCheckout(vinylData);
         
-        // Navigate to checkout page
+
         window.location.href = 'checkout.html';
     });
 }
 
 function saveVinylForCheckout(vinylData) {
-    // Create enhanced data object for checkout
     const checkoutData = {
-        // Basic info
         artist: vinylData.artist || 'Unknown Artist',
         title: vinylData.title || 'Unknown Album',
         year: vinylData.year || 'Unknown Year',
@@ -107,25 +99,20 @@ function saveVinylForCheckout(vinylData) {
         price: vinylData.price || 24.99,
         image: vinylData.image || 'images/default-vinyl.jpg',
         
-        // Additional details
         trackCount: vinylData.trackCount || 0,
         description: vinylData.description || generateDefaultDescription(vinylData),
         collectionId: vinylData.collectionId || '',
         artistId: vinylData.artistId || '',
         
-        // Timestamp for ordering
         addedToCart: new Date().toISOString(),
         
-        // Ensure we have a valid price number
         price: typeof vinylData.price === 'number' ? vinylData.price : 24.99
     };
     
     console.log('Saving to checkout:', checkoutData);
     
-    // Save to localStorage under 'currentVinyl' key (for checkout page)
     localStorage.setItem('currentVinyl', JSON.stringify(checkoutData));
     
-    // Also keep it under 'selectedVinyl' for reference
     localStorage.setItem('selectedVinyl', JSON.stringify(checkoutData));
     
     console.log('Data saved successfully to localStorage');
@@ -151,20 +138,19 @@ function displayError() {
     document.getElementById('albumDescription').textContent = 
         'Please return to the shop and select a vinyl to view details.';
     
-    // Hide buy button if there's an error
+
     const buyButton = document.getElementById('buyButton');
     if (buyButton) {
         buyButton.style.display = 'none';
     }
     
-    // Optionally hide other elements
     const albumDetails = document.querySelector('.album-details');
     if (albumDetails) {
         albumDetails.style.display = 'none';
     }
 }
 
-// Debug function (optional)
+
 function testLocalStorage() {
     console.log('=== LOCALSTORAGE DEBUG ===');
     console.log('selectedVinyl:', localStorage.getItem('selectedVinyl'));
@@ -181,7 +167,7 @@ function testLocalStorage() {
     console.log('=== END DEBUG ===');
 }
 
-// Add error handling for images
+
 const albumImage = document.getElementById('albumImage');
 if (albumImage) {
     albumImage.addEventListener('error', function() {

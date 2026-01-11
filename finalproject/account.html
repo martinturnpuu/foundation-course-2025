@@ -5,7 +5,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="account.css">
-
 </head>
 <body>
     <ul class="nav">
@@ -16,90 +15,71 @@
     </ul>
 
     <section class="content">
+
         <div id="guestView" class="account-container">
             <div class="auth-tabs">
                 <button class="auth-tab active" onclick="showAuthForm('login')">Sign In</button>
                 <button class="auth-tab" onclick="showAuthForm('create')">Create Account</button>
             </div>
-            
+
             <div id="loginForm" class="auth-form">
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" id="loginEmail" class="form-control" placeholder="your@email.com" required>
+                    <input type="email" id="loginEmail" placeholder="your@email.com" required>
                 </div>
-                
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" id="loginPassword" class="form-control" placeholder="••••••••" required>
+                    <input type="password" id="loginPassword" placeholder="••••••••" required>
                 </div>
-                
-                <button type="button" class="auth-btn" onclick="login()">
-                    <i class="fas fa-sign-in-alt"></i> Sign In
-                </button>
+                <button type="button" onclick="login()">Sign In</button>
             </div>
-            
+
             <div id="createForm" class="auth-form" style="display: none;">
                 <div class="form-group">
                     <label>Your Name</label>
-                    <input type="text" id="createName" class="form-control" placeholder="John Doe" required>
+                    <input type="text" id="createName" placeholder="John Doe" required>
                 </div>
-                
                 <div class="form-group">
                     <label>Email Address</label>
-                    <input type="email" id="createEmail" class="form-control" placeholder="your@email.com" required>
+                    <input type="email" id="createEmail" placeholder="your@email.com" required>
                 </div>
-                
                 <div class="form-group">
                     <label>Password</label>
-                    <input type="password" id="createPassword" class="form-control" placeholder="••••••••" required minlength="6">
+                    <input type="password" id="createPassword" placeholder="••••••••" required minlength="6">
                 </div>
-                
                 <div class="form-group">
                     <label>Confirm Password</label>
-                    <input type="password" id="confirmPassword" class="form-control" placeholder="••••••••" required>
+                    <input type="password" id="confirmPassword" placeholder="••••••••" required>
                 </div>
-                
-                <button type="button" class="auth-btn" onclick="createAccount()">
-                    <i class="fas fa-user-plus"></i> Create Account
-                </button>
+                <button type="button" onclick="createAccount()">Create Account</button>
             </div>
         </div>
-        
+
         <div id="userView" class="account-container" style="display: none;">
             <div class="user-welcome">
                 <h1>Welcome back, <span id="userName">User</span>!</h1>
             </div>
-            
+
             <div class="dashboard-sections">
-                <div class="section-card">
-                    <h2> My Orders</h2>
-                    <div id="ordersList">
-                        <div class="order-item">
-                            <h3>Aphex Twin - Selected Ambient Works 85-92</h3>
-                            <div class="progress-container">
-                            </div>
-                            <p class="order-status">Estimated delivery: 3-5 business days</p>
-                        </div>
-                    </div>
+                <h2>My Orders</h2>
+                <div id="ordersList">
                 </div>
             </div>
-            
-            <button class="logout-btn" onclick="logout()">
-                <i class="fas fa-sign-out-alt"></i> Sign Out
-            </button>
+
+            <button onclick="logout()">Sign Out</button>
         </div>
-        
+
         <div id="loadingView" class="account-container" style="display: none; text-align: center; padding: 60px;">
             <div class="spinner"></div>
         </div>
-    </section>
 
+    </section>
 
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
     <script src="firebase.js"></script>
     <script src="account.js"></script>
-
 </body>
 </html>
